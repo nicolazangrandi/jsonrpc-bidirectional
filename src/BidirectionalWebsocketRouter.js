@@ -164,6 +164,10 @@ class BidirectionalWebsocketRouter extends JSONRPC.RouterBase
 		const webSocket = objSession.webSocket;
 		const nConnectionID = objSession.nConnectionID;
 
+		if (typeof(strMessage) !== "string") {
+			strMessage = strMessage.toString();
+		}
+		
 		if(!strMessage.trim().length)
 		{
 			console.log("[" + process.pid + "] WebSocketBidirectionalRouter: Received empty message. Ignoring.");
